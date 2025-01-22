@@ -43,6 +43,19 @@ const getPost = (req, res) => {
     .catch((error) => errorHandler(error, req, res));
 };
 
+const getMyPost = (req, res) => {
+  return Post.find({ userId: req.user.id })
+    .then((result) => {
+      if (!result.length) {
+        return res
+          .status(404)
+          .send({ message: "No posts found for this user." });
+      }
+      return res.status(200).send(result);
+    })
+    .catch((error) => errorHandler(error, req, res));
+};
+
 const updatePost = (req, res) => {
   let updatedPost = {
     title: req.body.title,
@@ -140,4 +153,5 @@ module.exports = {
   deletePost,
   deleteComment,
   updatePost,
+  getMyPost,
 };

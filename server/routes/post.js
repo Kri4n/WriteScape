@@ -12,6 +12,8 @@ router.get("/getAllPosts", postController.getAllPosts);
 
 router.get("/getPost/:postId", postController.getPost);
 
+router.get("/getMyPost", verify, postController.getMyPost);
+
 router.patch("/updatePost/:postId", verify, postController.updatePost);
 
 router.patch("/addComment/:postId", verify, postController.addComment);
