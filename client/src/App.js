@@ -41,7 +41,7 @@ function App() {
       .get("https://writescape.onrender.com/users/details", {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
@@ -50,6 +50,7 @@ function App() {
             id: response.data.user._id,
             isAdmin: response.data.user.isAdmin,
             username: response.data.user.username,
+            email: response.data.user.email,
           });
         } else {
           setUser({ id: null, isAdmin: null, username: "Guest" });

@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useNavigate, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import UserContext from "../context/UserContext";
 import axios from "axios";
@@ -55,7 +54,7 @@ const LoginPage = () => {
         if (response.data.user.isAdmin) {
           notyf.success("Welcome Admin");
         } else {
-          notyf.success("Welcome User");
+          notyf.success(`Welcome ${response.data.user.username}`);
         }
       })
       .catch((error) => {
