@@ -43,6 +43,32 @@ const getPost = (req, res) => {
     .catch((error) => errorHandler(error, req, res));
 };
 
+const updatePost = (req, res) => {
+  let updatedPost = {
+    title: req.body.title,
+    content: req.body.content,
+  };
+
+  return Post.findOneAndUpdate(
+    { _id: req.params.postId, userId: req.user.id },
+    updatedPost,
+    { new: true }
+  )
+    .then((result) => {
+      if (result) {
+        return res.status(200).send({
+          message: "Post updated successfully",
+          updatedPost: result,
+        });
+      } else {
+        return res.status(404).send({ error: "Post does not exist" });
+      }
+    })
+    .catch((error) => {
+      errorHandler(error, req, res);
+    });
+};
+
 const addComment = (req, res) => {
   User.findById(req.user.id)
     .then((user) => {
@@ -113,4 +139,5 @@ module.exports = {
   getComments,
   deletePost,
   deleteComment,
+  updatePost,
 };
