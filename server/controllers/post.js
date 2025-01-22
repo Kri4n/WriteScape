@@ -51,7 +51,7 @@ const addComment = (req, res) => {
       }
 
       const newComment = {
-        userId: req.user.userId,
+        userId: req.user.id,
         username: user.username,
         comment: req.body.comment,
       };
