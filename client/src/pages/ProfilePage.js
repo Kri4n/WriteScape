@@ -123,7 +123,7 @@ const ProfilePage = () => {
 
   return (
     <>
-      <div className="my-10 mx-20 ps-16 grid grid-cols-5">
+      <div className="my-10 lg:mx-20 mx-3 lg:ps-16 grid grid-cols-5">
         <div className="flex flex-col text-left gap-4">
           <h1 className="text-2xl font-bold text-teal-600">User Details</h1>
           <hr />
@@ -134,7 +134,7 @@ const ProfilePage = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5 mx-20 col-span-4">
+        <div className="flex flex-col gap-5 lg:mx-20 my-5 lg:my-0 lg:col-span-4 col-span-5">
           <button
             type="button"
             className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center me-2 flex justify-center w-60 mb-4"

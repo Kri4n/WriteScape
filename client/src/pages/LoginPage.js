@@ -68,7 +68,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="my-20">
+    <div className="my-20 mx-3">
       <h1 className="text-xl pb-10 font-bold text-center">Login</h1>
       <form class="max-w-sm mx-auto" onSubmit={loginUser}>
         <div class="mb-5">
